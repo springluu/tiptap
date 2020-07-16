@@ -8,10 +8,7 @@
         <quasar-tiptap v-bind="options" @update="onUpdate" />
       </section>
 
-      <div v-html="html">
-      </div>
-      <div v-html="json">
-      </div>
+      <div v-html="html"></div>
 
       <h2>________________________________________________</h2><br/>
       <div>
@@ -112,7 +109,13 @@ export default {
   mounted () {
     console.log('mounted', this.$o)
     this.$o.lang.set('en-us')
-  }
+  },
+
+  watch: {
+    formula (newValue, oldValue) {
+      this.options.content = newValue;
+    }
+  },
 }
 </script>
 
