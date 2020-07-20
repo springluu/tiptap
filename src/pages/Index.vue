@@ -43,7 +43,8 @@ export default {
       formula: '$$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$',
       msg: 'Welcome to Your Vue.js App',
       options: {
-        content: 'hoho',
+        title: 'xxx',
+        content: 'Hello',
         editable: true,
         extensions: [
           ...RecommendedExtensions,
@@ -103,7 +104,7 @@ export default {
     onUpdate ({ getJSON, getHTML }) {
       this.json = getJSON()
       this.html = getHTML()
-      //console.log('html', this.html)
+      console.log('json', this.json)
     }
   },
   mounted () {
@@ -113,7 +114,7 @@ export default {
 
   watch: {
     formula (newValue, oldValue) {
-      this.options.content = newValue;
+      this.options.content = {type: 'text', text: newValue};
     }
   },
 }
